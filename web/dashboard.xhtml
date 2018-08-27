@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+    <h:head>
+        <title>SGP</title>
+        <meta name="author" content="Fabio Gomes Rocha" />
+    </h:head>
+    
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Restaurante Manager" brandHref="dashboard.xhtml" inverse="true" fixed="top"></b:navBar>
+        
+        <b:container>
+            <b:row>
+                <b:column span="3">
+                    <b:panel>
+                            <b:accordion>
+                                <b:panel id="panel1" title="Mesas">
+                                    <b:listLinks>
+                                        <b:navLink value="Mesas Livres" href="#"></b:navLink>
+                                        <b:navLink value="Inserir pedidos" href="#"></b:navLink>
+                                    </b:listLinks>
+                                </b:panel>
+                                
+                                <b:panel id="panel2" title="Funcionários">
+                                    <b:listLinks>
+                                        <b:navLink value="Cadastrar" href="#"></b:navLink>
+                                        <b:navLink value="Listar" href="#"></b:navLink>
+                                    </b:listLinks>
+                                </b:panel>
+                                <b:panel id="panel3" title="Item 3">Content 3</b:panel>
+                            </b:accordion>
+                    </b:panel>
+                </b:column>
+                
+                <b:column col-md="5">
+                    <h2>SGP</h2>
+                    <p>Saiba mais sobre o SGP e como ele pode ajudar sua organização </p>
+                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+                </b:column>
+                <b:column col-md="6">
+                    <h2>JSF</h2>
+                    <p>Entenda o funcionamento do SGP  </p>
+                    <p><b:button outcome="" value="Ver detalhes »"></b:button></p>
+                </b:column>
+            </b:row>
+
+            <hr></hr>
+
+            <footer>
+                <p>Restaurante Manager - 2018</p>
+            </footer>
+        </b:container>
+    </h:body>
+</html>
