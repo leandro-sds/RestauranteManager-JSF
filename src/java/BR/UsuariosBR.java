@@ -21,13 +21,15 @@ public class UsuariosBR {
         usuario = new Usuarios();
         daouser = new UsuarioDAO();
         if(login.isEmpty() || senha.isEmpty()){
-            url="dashboard";
+            url="/index";
         } else {
             usuario.setLogin(login);
             usuario.setSenha(senha);
             usuario.setTipo(tipo);
             usuario = daouser.salvar(usuario);
-            url="manUser";
+           url="/dashboard";
+           
+           
         }
         return url;
     }

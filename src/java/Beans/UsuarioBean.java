@@ -47,7 +47,7 @@ public class UsuarioBean implements Serializable {
         this.tipo = tipo;
     }
     
-    public String cadastrar() {
+    public String cadastrar() {        
         UsuariosBR uBR = new UsuariosBR();
         return uBR.cadastrar(this.login, this.senha, this.tipo);
     }
@@ -56,7 +56,6 @@ public class UsuarioBean implements Serializable {
      * Creates a new instance of UsuarioBean
      */
     public UsuarioBean() {
-        UsuarioDAO uDAO = new UsuarioDAO();
     }
     
 }

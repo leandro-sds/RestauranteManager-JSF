@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import Entidades.GenericDAO;
 import Entidades.Usuarios;
 
 /**

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entidades;
+package DAO;
 
+import Entidades.GenericEntity;
+import Entidades.GenericEntity;
 import javax.persistence.EntityManager;
 
 /**
@@ -20,8 +22,8 @@ public class GenericDAO<T extends GenericEntity> {
             em.getTransaction().begin();
             if (t.getId() == null) {
                 em.persist(t);
+                em.getTransaction().commit();
             }
-            em.getTransaction().commit();
         } catch (Exception e) {
         } finally {
             em.close();
