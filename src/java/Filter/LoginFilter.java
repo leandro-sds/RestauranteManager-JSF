@@ -108,7 +108,7 @@ public class LoginFilter implements Filter {
         doBeforeProcessing(request, response);
 
         Throwable problem = null;
-        try {
+        /*try {
             chain.doFilter(request, response);
         } catch (Throwable t) {
             // If an exception is thrown somewhere down the filter chain,
@@ -116,20 +116,20 @@ public class LoginFilter implements Filter {
             // rethrow the problem after that.
             problem = t;
             t.printStackTrace();
-        }
+        }*/
 
-        /*try {
+        try {
             HttpServletRequest req = (HttpServletRequest) request;
             HttpSession session = req.getSession();
             if ((session.getAttribute("UsuarioLogado") != null) || (req.getRequestURI().endsWith("index.xhtml"))) {
                 chain.doFilter(request, response);
             } else {
-                redireciona("./faces/index.xhtml", response);
+                redireciona("../faces/index.xhtml", response);
             }
         } catch (Throwable t) {
             problem = t;
             t.printStackTrace();
-        }*/
+        }
 
         doAfterProcessing(request, response);
 
