@@ -19,15 +19,15 @@
             <h:form styleClass="form-signin" prependId="false">
                 <h2 class="form-signin-heading">Restaurante Manager</h2>
                 
-                <b:inputText id="email" placeholder="Email" >
+                <b:inputText id="email" placeholder="Login" value="#{loginBean.login}" >
                     <f:facet name="prepend"> <b:icon name="user" /> </f:facet>
                 </b:inputText>
                 
-                <b:inputText id="password" placeholder="Senha" type="password">
+                <b:inputText id="password" placeholder="Senha" type="password" value="#{loginBean.senha}">
                     <f:facet name="prepend"><b:iconAwesome name="key" /></f:facet>
                 </b:inputText>
                 
-                <b:commandButton look="primary btn-block" iconAwesome="sign-in" value="Cadastrar" size="lg"/>
+                <b:commandButton look="primary btn-block" iconAwesome="sign-in" value="Cadastrar" size="lg" action="#{loginBean.autenticaLogin()}"/>
             </h:form>
         </b:container>
 </h:body>

@@ -13,23 +13,22 @@ import Entidades.Usuarios;
  * @author leand
  */
 public class UsuariosBR {
+
     private Usuarios usuario = null;
     UsuarioDAO daouser = null;
-    
-    public String cadastrar(String login, String senha, String tipo){
+
+    public String cadastrar(String login, String senha, String tipo) {
         String url;
         usuario = new Usuarios();
         daouser = new UsuarioDAO();
-        if(login.isEmpty() || senha.isEmpty()){
-            url="/index";
+        if (login.isEmpty() || senha.isEmpty()) {
+            url = "/index";
         } else {
             usuario.setLogin(login);
             usuario.setSenha(senha);
             usuario.setTipo(tipo);
             usuario = daouser.salvar(usuario);
-           url="/dashboard";
-           
-           
+            url = "/dashboard";
         }
         return url;
     }
