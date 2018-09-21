@@ -52,7 +52,7 @@ public class LoginBean {
         Usuarios usuario = (Usuarios) query.getSingleResult();
 
         if (usuario.getLogin().equalsIgnoreCase(login) && usuario.getSenha().equalsIgnoreCase(senha)) {
-            url = "View/dashboard.xhtml";
+            url = "dashboard.xhtml";
             Object x = new Object();
             SessionUtil.setParam("UsuarioLogado", x);
         } else {

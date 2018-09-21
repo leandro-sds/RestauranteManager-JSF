@@ -22,19 +22,19 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author leand
  */
 @Entity
-@Table(name = "gar\u00e7ons")
+@Table(name = "garcons")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Gar\u00e7ons.findAll", query = "SELECT g FROM Gar\u00e7ons g")
-    , @NamedQuery(name = "Gar\u00e7ons.findById", query = "SELECT g FROM Gar\u00e7ons g WHERE g.id = :id")
-    , @NamedQuery(name = "Gar\u00e7ons.findByNome", query = "SELECT g FROM Gar\u00e7ons g WHERE g.nome = :nome")})
-public class Garçons implements Serializable {
+    @NamedQuery(name = "Garcons.findAll", query = "SELECT g FROM Garcons g")
+    , @NamedQuery(name = "Garcons.findById", query = "SELECT g FROM Garcons g WHERE g.id = :id")
+    , @NamedQuery(name = "Garcons.findByNome", query = "SELECT g FROM Garcons g WHERE g.nome = :nome")})
+public class Garcons implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @NotNull
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
@@ -42,14 +42,14 @@ public class Garçons implements Serializable {
     @Column(name = "Nome")
     private String nome;
 
-    public Garçons() {
+    public Garcons() {
     }
 
-    public Garçons(Integer id) {
+    public Garcons(Integer id) {
         this.id = id;
     }
 
-    public Garçons(Integer id, String nome) {
+    public Garcons(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -80,10 +80,10 @@ public class Garçons implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Garçons)) {
+        if (!(object instanceof Garcons)) {
             return false;
         }
-        Garçons other = (Garçons) object;
+        Garcons other = (Garcons) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -92,7 +92,7 @@ public class Garçons implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Gar\u00e7ons[ id=" + id + " ]";
+        return "Entidades.Garcons[ id=" + id + " ]";
     }
     
 }

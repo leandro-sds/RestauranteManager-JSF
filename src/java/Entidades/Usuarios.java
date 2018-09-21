@@ -31,14 +31,15 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id")
     , @NamedQuery(name = "Usuarios.findByLogin", query = "SELECT u FROM Usuarios u WHERE u.login = :login")
     , @NamedQuery(name = "Usuarios.findBySenha", query = "SELECT u FROM Usuarios u WHERE u.senha = :senha")
-    , @NamedQuery(name = "Usuarios.findByTipo", query = "SELECT u FROM Usuarios u WHERE u.tipo = :tipo")})
+    , @NamedQuery(name = "Usuarios.findByTipo", query = "SELECT u FROM Usuarios u WHERE u.tipo = :tipo")
+    , @NamedQuery(name = "Usuarios.findByNome", query = "SELECT u FROM Usuarios u WHERE u.nome = :nome")})
 public class Usuarios implements GenericEntity {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
@@ -52,9 +53,14 @@ public class Usuarios implements GenericEntity {
     private String senha;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 1)
+    @Size(min = 1, max = 2)
     @Column(name = "Tipo")
     private String tipo;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "Nome")
+    private String nome;
 
     public Usuarios() {
     }
@@ -63,14 +69,14 @@ public class Usuarios implements GenericEntity {
         this.id = id;
     }
 
-    public Usuarios(Integer id, String login, String senha, String tipo) {
+    public Usuarios(Integer id, String login, String senha, String tipo, String nome) {
         this.id = id;
         this.login = login;
         this.senha = senha;
         this.tipo = tipo;
+        this.nome = nome;
     }
 
-    @Override
     public Integer getId() {
         return id;
     }
@@ -103,6 +109,14 @@ public class Usuarios implements GenericEntity {
         this.tipo = tipo;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -125,7 +139,7 @@ public class Usuarios implements GenericEntity {
 
     @Override
     public String toString() {
-        return "Model.Usuarios[ id=" + id + " ]";
+        return "Entidades.Usuarios[ id=" + id + " ]";
     }
     
 }

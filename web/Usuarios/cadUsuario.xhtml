@@ -15,8 +15,13 @@
                     <h:panelGrid columns="2" cellpadding="15px" cellspacing="15px" width="90%">
                         <h:outputText value="Login: " />  
                         <b:inputText value="#{usuarioBean.login}"/>
+                        
                         <h:outputText value="Senha: " />  
                         <b:inputText value="#{usuarioBean.senha}" type="password"/>
+                        
+                        <h:outputText value="Nome: " />  
+                        <b:inputText value="#{usuarioBean.nome}"/>
+                        
                         <h:outputText value="Tipo: " />  
                         <b:selectOneMenu value="#{usuarioBean.tipo}">
                             <f:selectItem itemLabel="(Selecione um tipo)" itemValue="" />
@@ -29,9 +34,5 @@
                 </h:form>
             </ui:define>
         </ui:composition>
-
-
-
-
     </h:body>
 </html>

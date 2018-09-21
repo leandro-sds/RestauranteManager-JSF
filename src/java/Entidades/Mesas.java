@@ -26,32 +26,34 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Mesas.findAll", query = "SELECT m FROM Mesas m")
-    , @NamedQuery(name = "Mesas.findByIdMesa", query = "SELECT m FROM Mesas m WHERE m.idMesa = :idMesa")
-    , @NamedQuery(name = "Mesas.findByStatus", query = "SELECT m FROM Mesas m WHERE m.status = :status")})
-public class Mesas implements Serializable {
+    , @NamedQuery(name = "Mesas.findById", query = "SELECT m FROM Mesas m WHERE m.id = :id")
+    , @NamedQuery(name = "Mesas.findByStatus", query = "SELECT m FROM Mesas m WHERE m.status = :status")
+    , @NamedQuery(name = "Mesas.findFreeTables", query = "SELECT m FROM Mesas m WHERE m.status = 0")})
+    
+public class Mesas implements GenericEntity {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idMesa")
-    private Integer idMesa;
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "Status")
     private Integer status;
 
     public Mesas() {
     }
 
-    public Mesas(Integer idMesa) {
-        this.idMesa = idMesa;
+    public Mesas(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdMesa() {
-        return idMesa;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdMesa(Integer idMesa) {
-        this.idMesa = idMesa;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getStatus() {
@@ -65,7 +67,7 @@ public class Mesas implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idMesa != null ? idMesa.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -76,7 +78,7 @@ public class Mesas implements Serializable {
             return false;
         }
         Mesas other = (Mesas) object;
-        if ((this.idMesa == null && other.idMesa != null) || (this.idMesa != null && !this.idMesa.equals(other.idMesa))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -84,7 +86,7 @@ public class Mesas implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Mesas[ idMesa=" + idMesa + " ]";
+        return "Entidades.Mesas[ id=" + id + " ]";
     }
     
 }

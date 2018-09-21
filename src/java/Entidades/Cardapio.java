@@ -38,7 +38,7 @@ public class Cardapio implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
     @NotNull
@@ -110,7 +110,7 @@ public class Cardapio implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Cardapio[ id=" + id + " ]";
+        return "Entidades.Cardapio[ id=" + id + " ]";
     }
     
 }

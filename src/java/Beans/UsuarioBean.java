@@ -22,6 +22,7 @@ public class UsuarioBean implements Serializable {
     private String login;
     private String senha;
     private String tipo;
+    private String nome;
 
     public String getLogin() {
         return login;
@@ -47,15 +48,22 @@ public class UsuarioBean implements Serializable {
         this.tipo = tipo;
     }
     
-    public String cadastrar() {        
-        UsuariosBR uBR = new UsuariosBR();
-        return uBR.cadastrar(this.login, this.senha, this.tipo);
+    public String getNome() {
+        return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String cadastrar() {        
+        UsuariosBR uBR = new UsuariosBR();
+        return uBR.cadastrar(this.login, this.senha, this.tipo, this.nome);
+    }
+    
     /**
      * Creates a new instance of UsuarioBean
      */
     public UsuarioBean() {
     }
-    
 }
