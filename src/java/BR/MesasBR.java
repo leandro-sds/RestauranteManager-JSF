@@ -18,7 +18,21 @@ public class MesasBR {
     
     public List<Mesas> getMesasList() {
         mesasDAO = new MesasDAO();
-        
         return mesasDAO.getMesasList();
+    }
+    
+    public List<Mesas> getMesasOcupadas() {
+        mesasDAO = new MesasDAO();
+        return mesasDAO.getMesasOcupadas();
+    }
+    
+    public int updateStatus(Mesas mesa) {
+        mesasDAO = new MesasDAO();
+        return mesasDAO.updateStatus(mesa);
+    }
+    
+    public void fecharConta() {
+        mesasDAO = new MesasDAO();
+        mesasDAO.getConta();
     }
 }

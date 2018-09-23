@@ -13,7 +13,6 @@ import Entidades.Usuarios;
  * @author leand
  */
 public class UsuariosBR {
-
     private Usuarios usuario = null;
     UsuarioDAO daouser = null;
 

@@ -4,15 +4,13 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
     <h:head>
         <title>SGP</title>
         <meta name="author" content="Fabio Gomes Rocha" />
     </h:head>
     
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <b:navBar brand="Restaurante Manager" brandHref="dashboard.xhtml" inverse="true" fixed="top"></b:navBar>
-        
+        <b:navBar brand="Restaurante Manager" brandHref="/RestauranteManager/faces/dashboard.xhtml" inverse="true" fixed="top"></b:navBar>
         <b:container>
             <b:row>
                 <b:column span="3">
@@ -20,29 +18,23 @@
                             <b:accordion>
                                 <b:panel id="panel1" title="Mesas">
                                     <b:listLinks>
-                                        <b:navLink value="Mesas Livres" href="Mesas/listMesas.xhtml"></b:navLink>
-                                        <b:navLink value="Inserir pedidos" href="#"></b:navLink>
-                                    </b:listLinks>
-                                </b:panel>
-                                
-                                <b:panel id="panel2" title="Funcionários">
-                                    <b:listLinks>
-                                        <b:navLink value="Cadastrar" href="#"></b:navLink>
-                                        <b:navLink value="Listar" href="#"></b:navLink>
-                                    </b:listLinks>
-                                </b:panel>
-                                
-                                <b:panel id="panel3" title="Clientes">
-                                    <b:listLinks>
-                                        <b:navLink value="Cadastrar Pedido" href="#"></b:navLink>
+                                        <b:navLink value="Mesas Livres" href="/RestauranteManager/faces/mesas/listMesas.xhtml"></b:navLink>
+                                        <b:navLink value="Inserir pedidos" href="/RestauranteManager/faces/mesas/cadPedido.xhtml"></b:navLink>
                                         <b:navLink value="Fechar Conta" href="#"></b:navLink>
                                     </b:listLinks>
                                 </b:panel>
                                 
-                                <b:panel id="panel4" title="Pratos">
+                                <b:panel id="panel2" title="Garçons">
                                     <b:listLinks>
-                                        <b:navLink value="Listar Pratos" href="#"></b:navLink>
-                                        <b:navLink value="Cadastrar Pratos" href="#"></b:navLink>
+                                        <b:navLink value="Cadastrar" href="/RestauranteManager/faces/garcons/cadGarcom.xhtml"></b:navLink>
+                                        <b:navLink value="Listar" href="/RestauranteManager/faces/garcons/listGarcons.xhtml"></b:navLink>
+                                    </b:listLinks>
+                                </b:panel>
+                                
+                                <b:panel id="panel4" title="Cardápio">
+                                    <b:listLinks>
+                                        <b:navLink value="Cadastrar Pratos" href="/RestauranteManager/faces/cardapio/cadPrato.xhtml"></b:navLink>
+                                        <b:navLink value="Listar Pratos" href="/RestauranteManager/faces/cardapio/listCardapio.xhtml"></b:navLink>
                                     </b:listLinks>
                                 </b:panel>
                             </b:accordion>
@@ -52,7 +44,6 @@
                 <b:column col-md="9">
                     <ui:insert name="content"></ui:insert>
                 </b:column>
-                
             </b:row>
 
             <hr></hr>

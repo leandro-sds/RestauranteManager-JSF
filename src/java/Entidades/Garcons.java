@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -28,12 +30,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Garcons.findAll", query = "SELECT g FROM Garcons g")
     , @NamedQuery(name = "Garcons.findById", query = "SELECT g FROM Garcons g WHERE g.id = :id")
     , @NamedQuery(name = "Garcons.findByNome", query = "SELECT g FROM Garcons g WHERE g.nome = :nome")})
-public class Garcons implements Serializable {
+public class Garcons implements GenericEntity {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -47,6 +49,10 @@ public class Garcons implements Serializable {
 
     public Garcons(Integer id) {
         this.id = id;
+    }
+    
+    public Garcons(String nome) {
+        this.nome = nome;
     }
 
     public Garcons(Integer id, String nome) {

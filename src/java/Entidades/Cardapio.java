@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Cardapio.findById", query = "SELECT c FROM Cardapio c WHERE c.id = :id")
     , @NamedQuery(name = "Cardapio.findByNome", query = "SELECT c FROM Cardapio c WHERE c.nome = :nome")
     , @NamedQuery(name = "Cardapio.findByValor", query = "SELECT c FROM Cardapio c WHERE c.valor = :valor")})
-public class Cardapio implements Serializable {
+public class Cardapio implements GenericEntity {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -56,6 +56,11 @@ public class Cardapio implements Serializable {
 
     public Cardapio(Integer id) {
         this.id = id;
+    }
+    
+    public Cardapio(String nome, BigDecimal valor) {
+        this.nome = nome;
+        this.valor = valor;
     }
 
     public Cardapio(Integer id, String nome, BigDecimal valor) {

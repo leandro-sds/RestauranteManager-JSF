@@ -15,14 +15,14 @@ import javax.inject.Named;
  *
  * @author leand
  */
-
 @Named(value = "mesasBean")
 @RequestScoped
 public class MesasBean {
+
     private int status;
     private List<Mesas> listmesas;
     private MesasBR mesasBR = new MesasBR();
-    
+
     public MesasBean() {
         this.listmesas = mesasBR.getMesasList();
     }
@@ -42,8 +42,14 @@ public class MesasBean {
     public void setListmesas(List<Mesas> listmesas) {
         this.listmesas = listmesas;
     }
-    
-    public void updateMesaStatus(Mesas mesa) {
-        
+
+    public String updateMesaStatus(Mesas mesa) {
+        mesasBR.updateStatus(mesa);
+        return "dashboard";
+    }
+
+    public void fecharConta() {
+        MesasBR mesasBR = new MesasBR();
+        mesasBR.fecharConta();
     }
 }

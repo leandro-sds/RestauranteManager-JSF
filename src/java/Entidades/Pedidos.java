@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Pedidos.findByData", query = "SELECT p FROM Pedidos p WHERE p.data = :data")
     , @NamedQuery(name = "Pedidos.findByPagamento", query = "SELECT p FROM Pedidos p WHERE p.pagamento = :pagamento")
     , @NamedQuery(name = "Pedidos.findByStatus", query = "SELECT p FROM Pedidos p WHERE p.status = :status")})
-public class Pedidos implements Serializable {
+public class Pedidos implements GenericEntity {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -74,6 +74,14 @@ public class Pedidos implements Serializable {
 
     public Pedidos(Integer id) {
         this.id = id;
+    }
+    
+    public Pedidos(int idItem, int idGarcon, int idMesa, Date data) {
+        this.idItem = idItem;
+        this.idGarcon = idGarcon;
+        this.idMesa = idMesa;
+        this.data = data;
+        this.status = '0';
     }
 
     public Pedidos(Integer id, int idItem, int idGarcon, int idMesa, Date data, Character status) {

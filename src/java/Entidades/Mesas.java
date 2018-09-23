@@ -28,7 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Mesas.findAll", query = "SELECT m FROM Mesas m")
     , @NamedQuery(name = "Mesas.findById", query = "SELECT m FROM Mesas m WHERE m.id = :id")
     , @NamedQuery(name = "Mesas.findByStatus", query = "SELECT m FROM Mesas m WHERE m.status = :status")
-    , @NamedQuery(name = "Mesas.findFreeTables", query = "SELECT m FROM Mesas m WHERE m.status = 0")})
+    , @NamedQuery(name = "Mesas.findFreeTables", query = "SELECT m FROM Mesas m WHERE m.status = 0")
+    , @NamedQuery(name = "Mesas.findOccupiedTables", query = "SELECT m FROM Mesas m WHERE m.status = 1")})
     
 public class Mesas implements GenericEntity {
 

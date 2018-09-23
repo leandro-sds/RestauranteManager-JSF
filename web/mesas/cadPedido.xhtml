@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastrar Pedidos</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template/template.xhtml">
+            <ui:define name="content">
+                <h:form style="padding-top: 25px;"> 
+                    <h:panelGrid columns="2" cellpadding="15px" cellspacing="15px" width="90%">
+                        <h:outputText value="Mesa:" />  
+                        <b:selectOneMenu value="#{pedidosBean.idMesa}">
+                            <f:selectItems value="#{pedidosBean.mesasList}" var="mesas" itemLabel="#{mesas.id}" itemValue="#{mesas.id}" />
+                        </b:selectOneMenu>                        
+
+                        <h:outputText value="Pedido:" />  
+                        <b:selectOneMenu value="#{pedidosBean.idItem}">
+                            <f:selectItems value="#{pedidosBean.cardapioList}" var="cardapio" itemLabel="#{cardapio.nome}" itemValue="#{cardapio.id}" />
+                        </b:selectOneMenu>
+
+                        <h:outputText value="Garçom:" />  
+                        <b:selectOneMenu value="#{pedidosBean.idGarcom}">
+                            <f:selectItems value="#{pedidosBean.garconsList}" var="garcons" itemLabel="#{garcons.nome}" itemValue="#{garcons.id}" />
+                        </b:selectOneMenu>
+                    </h:panelGrid>
+
+                    <b:commandButton value="Cadastrar" action="#{pedidosBean.cadastrarPedido()}" />
+                </h:form>
+            </ui:define>
+        </ui:composition>    </h:body>
+</html>
+
