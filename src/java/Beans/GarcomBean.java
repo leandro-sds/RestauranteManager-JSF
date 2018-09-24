@@ -8,6 +8,7 @@ package Beans;
 import BR.GarconsBR;
 import Entidades.Garcons;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -21,6 +22,12 @@ import javax.inject.Named;
 public class GarcomBean {
     private String nome;
     private List<Garcons> garcons;
+    
+    @PostConstruct
+    private void getGarconsList() {
+        GarconsBR garconsBR = new GarconsBR();
+        garcons = garconsBR.getGarconsList();
+    }
 
     public String getNome() {
         return nome;

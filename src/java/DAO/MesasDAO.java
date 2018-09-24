@@ -7,6 +7,9 @@ package DAO;
 
 import Entidades.Conta;
 import Entidades.Mesas;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -55,14 +58,22 @@ public class MesasDAO extends GenericDAO<Mesas> {
         }
     }
     
-    public List<Conta> getConta() {
+    public List<Conta> getConta(int id) {
         em = daoHelper.getEM();
         List<Conta> contaList;
         
-        Query query = em.createQuery("SELECT p.data data, c.nome nomePedido, c.valor, g.nome nomeGarcom FROM Pedidos p \n"
+        Query query = em.createQuery("SELECT new Entidades.Conta(p.data, c.nome, c.valor, g.nome) FROM Pedidos p \n"
                 + "    JOIN Cardapio c ON p.idItem = c.id\n"
-                + "    JOIN Garcons g ON p.idGarcon = g.id", Conta.class);
+                + "    JOIN Garcons g ON p.idGarcon = g.id\n"
+                + "WHERE p.idMesa = :id");
+        query.setParameter("id", id);
         contaList = query.getResultList();
+        
+        for (Conta conta : contaList) {
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM");
+            Date data = conta.getData();
+            conta.setDataString(dateFormat.format(data));
+        }
         
         return contaList;
     }

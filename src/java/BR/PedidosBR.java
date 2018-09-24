@@ -5,13 +5,16 @@
  */
 package BR;
 
+import DAO.MesasDAO;
 import DAO.PedidosDAO;
+import Entidades.Conta;
 import Entidades.Pedidos;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -25,7 +28,7 @@ public class PedidosBR {
         if (idGarcom == 0 || idItem == 0 || idMesa == 0) {
             return "erro";
         } else {
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = new Date();
 
             try {
@@ -37,6 +40,22 @@ public class PedidosBR {
             }
             
             return "dashboard";
+        }
+    }
+    
+    public List<Conta> getConta(int id) {
+        pedidosDAO = new PedidosDAO();
+        return pedidosDAO.getConta(id);
+    }
+    
+    public String fecharConta(Character formaPagamento,Date dataConta, int idMesa) {
+        pedidosDAO = new PedidosDAO();
+        int result = pedidosDAO.fecharConta(formaPagamento, dataConta, idMesa);
+        
+        if (result > 0) {
+            return "dashboard";
+        } else {
+            return "erro";
         }
     }
 }

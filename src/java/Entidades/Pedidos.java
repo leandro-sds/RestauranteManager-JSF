@@ -60,7 +60,7 @@ public class Pedidos implements GenericEntity {
     @Basic(optional = false)
     @NotNull
     @Column(name = "Data")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date data;
     @Column(name = "Pagamento")
     private Character pagamento;
@@ -75,7 +75,7 @@ public class Pedidos implements GenericEntity {
     public Pedidos(Integer id) {
         this.id = id;
     }
-    
+
     public Pedidos(int idItem, int idGarcon, int idMesa, Date data) {
         this.idItem = idItem;
         this.idGarcon = idGarcon;
@@ -83,7 +83,7 @@ public class Pedidos implements GenericEntity {
         this.data = data;
         this.status = '0';
     }
-
+    
     public Pedidos(Integer id, int idItem, int idGarcon, int idMesa, Date data, Character status) {
         this.id = id;
         this.idItem = idItem;

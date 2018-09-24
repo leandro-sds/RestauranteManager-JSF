@@ -30,9 +30,4 @@ public class MesasBR {
         mesasDAO = new MesasDAO();
         return mesasDAO.updateStatus(mesa);
     }
-    
-    public void fecharConta() {
-        mesasDAO = new MesasDAO();
-        mesasDAO.getConta();
-    }
 }

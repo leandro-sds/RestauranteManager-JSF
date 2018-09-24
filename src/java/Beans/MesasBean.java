@@ -18,7 +18,6 @@ import javax.inject.Named;
 @Named(value = "mesasBean")
 @RequestScoped
 public class MesasBean {
-
     private int status;
     private List<Mesas> listmesas;
     private MesasBR mesasBR = new MesasBR();
@@ -46,10 +45,5 @@ public class MesasBean {
     public String updateMesaStatus(Mesas mesa) {
         mesasBR.updateStatus(mesa);
         return "dashboard";
-    }
-
-    public void fecharConta() {
-        MesasBR mesasBR = new MesasBR();
-        mesasBR.fecharConta();
     }
 }
