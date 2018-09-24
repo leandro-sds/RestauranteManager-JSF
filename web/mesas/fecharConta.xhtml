@@ -18,7 +18,7 @@
                         <f:selectItems value="#{contaBean.listMesas}" var="mesas" itemLabel="#{mesas.id}" itemValue="#{mesas.id}" />
                     </b:selectOneMenu>
                     
-                    <b:dataTable widgetVar="contaTable" value="#{contaBean.listContas}" id="contaTable" var="conta" paginated="false" searching="false" >
+                    <b:dataTable widgetVar="contaTable" value="#{contaBean.listContas}" id="contaTable" var="conta" paginated="false" searching="false" print="true" >
                         <b:dataTableColumn label="Data" value="#{conta.dataString}" dataType="Date" />
                         <b:dataTableColumn label="Item" value="#{conta.nomePedido}" />
                         <b:dataTableColumn label="Valor" value="R$ #{conta.valor}" />
